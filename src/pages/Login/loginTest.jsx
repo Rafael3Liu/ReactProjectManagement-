@@ -1,9 +1,9 @@
 import { Form, Button, Input, Checkbox, message, Card } from 'antd'
 
 import { useNavigate } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { axiosInstance } from '../../utils/interceptors'
-import './index.scss'
+import './index.css'
 
 function LoginTest() {
   const navigate = useNavigate()
@@ -81,10 +81,6 @@ function LoginTest() {
               placeholder="Please Enter Password"
               onChange={(e) => handleChange(e)}
             />
-          </Form.Item>
-
-          <Form.Item name="remember" valuePropName="checked">
-            <Checkbox>Remember me</Checkbox>
           </Form.Item>
 
           <Form.Item>

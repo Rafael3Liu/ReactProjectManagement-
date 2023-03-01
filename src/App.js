@@ -11,12 +11,6 @@ function App () {
   const [searchedValue, setSearchedValue] = useState()
   const [message, setMessage] = useState("")
 
-  useEffect(() => {
-    auth()
-  }, [])
-
-  console.log(auth())
-
   return (
     <BrowserRouter>
       <Routes>

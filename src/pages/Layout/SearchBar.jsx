@@ -7,7 +7,6 @@ import Toolbar from '@mui/material/Toolbar'
 import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
 import InputBase from '@mui/material/InputBase'
-
 import SearchIcon from '@mui/icons-material/Search'
 import { TextField } from '@mui/material'
 import ClearIcon from '@mui/icons-material/Clear'
