@@ -18,25 +18,23 @@ function LoginTest() {
   }
 
   const authUser = async (user) =>
-    await axiosInstance
-      .post('https://app.spiritx.co.nz/api/login', user)
-      .then((res) => {
-        res.data && localStorage.setItem('pc-key', res.data.token.token)
-        res.data && localStorage.setItem('email', res.data.user.email)
+    await axiosInstance.post('login', user).then((res) => {
+      res.data && localStorage.setItem('pc-key', res.data.token.token)
+      res.data && localStorage.setItem('email', res.data.user.email)
 
-        console.log(res.data.user.email)
-        console.log(res.data.token.token)
-        if (res.data) {
-          navigate('/')
+      console.log(res.data.user.email)
+      console.log(res.data.token.token)
+      if (res.data) {
+        navigate('/')
 
-          message.success('Login Successfully')
-        } else {
-          message.success('Login failed')
-        }
-        setTimeout(() => {
-          window.location.reload()
-        }, 2000)
-      })
+        message.success('Login Successfully')
+      } else {
+        message.success('Login failed')
+      }
+      setTimeout(() => {
+        window.location.reload()
+      }, 2000)
+    })
 
   return (
     <div className="login">
