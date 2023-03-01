@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import './App.css'
+import Layout from './pages/Layout'
+import LoginTest from './pages/Login/loginTest'
+import SnackBar from './component/SnackBar'
+import { auth } from './utils/token'
+import { Navigate } from 'react-router-dom'
+function App () {
+  const [inputValue, setInputValue] = useState("")
+  const [searchedValue, setSearchedValue] = useState()
+  const [message, setMessage] = useState("")
 
-function App() {
+  useEffect(() => {
+    auth()
+  }, [])
+
+  console.log(auth())
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={
+
+          auth() ? (
+            <Layout inputValue={inputValue} setInputValue={setInputValue}
+              searchedValue={searchedValue}
+              setSearchedValue={setSearchedValue} setMessage={setMessage} />
+          ) : (<Navigate to="/loginTest" replace />)
+        }></Route>
+        <Route path='/loginTest' element={auth() ? <Navigate to="/" replace /> : <LoginTest />}></Route>
+
+      </Routes>
+      <SnackBar message={message} setMessage={setMessage} />
+    </BrowserRouter >
+
+  )
 }
 
-export default App;
+export default App
