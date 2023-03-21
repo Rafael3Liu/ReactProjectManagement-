@@ -264,7 +264,7 @@ const EnhancedTable = ({
     console.log(id)
     setProducts(newList)
 
-    axiosInstance.delete(`product/${id}`).then((res) => {
+    axiosInstance.delete(`products/${id}`).then((res) => {
       console.log(res.data)
       res.data ? setMessage('delete-success') : setMessage('delete-unsuccess')
     })
@@ -289,7 +289,7 @@ const EnhancedTable = ({
     if (data.id) {
       console.log(data)
       formData.append('_method', 'put')
-      axiosInstance.post(`product/${data.id}`, formData).then((res) => {
+      axiosInstance.post(`products/${data.id}`, formData).then((res) => {
         console.log(res)
         setEditNum('')
         setImgFile(null)

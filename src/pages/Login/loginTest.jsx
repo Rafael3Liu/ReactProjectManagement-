@@ -19,11 +19,14 @@ function LoginTest() {
 
   const authUser = async (user) =>
     await axiosInstance.post('login', user).then((res) => {
-      res.data && localStorage.setItem('pc-key', res.data.token.token)
+      console.log(res.data)
+      //res.data && localStorage.setItem('pc-key', res.data.token.token)
+      //res.data && localStorage.setItem('email', res.data.user.email)
+      res.data && localStorage.setItem('pc-key', res.data.token)
       res.data && localStorage.setItem('email', res.data.user.email)
+      //console.log(res.data.user.email)
+      console.log(res.token)
 
-      console.log(res.data.user.email)
-      console.log(res.data.token.token)
       if (res.data) {
         navigate('/')
 
@@ -31,6 +34,7 @@ function LoginTest() {
       } else {
         message.success('Login failed')
       }
+
       setTimeout(() => {
         window.location.reload()
       }, 2000)

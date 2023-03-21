@@ -81,7 +81,7 @@ const PostTableCell = ({
                 src={
                   preview
                     ? preview
-                    : `https://app.spiritx.co.nz/storage/${product.product_image}`
+                    : `http://localhost:8000/storage/${product.product_image}`
                 }
                 width={80}
                 height={60}
@@ -106,7 +106,7 @@ const PostTableCell = ({
             <Box
               component="img"
               alt=""
-              src={`https://app.spiritx.co.nz/storage/${product.product_image}`}
+              src={`http://localhost:8000/storage/${product.product_image}`}
               width={80}
               height={60}
             />
